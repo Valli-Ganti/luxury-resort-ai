@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #0e1a17;
+  --color-forest: #1b2e29;
+  --color-moss: #2f4a42;
+  --color-ivory: #f8f4ec;
+  --color-sand: #ece3d3;
+  --color-linen: #e2d6c1;
+  --color-gold: #b8975a;
+  --color-gold-light: #d7bf8c;
+  --color-muted: #6f7a75;
+
+  --font-display: var(--font-cormorant), "Times New Roman", serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-ivory);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #fff;
+}
+
+/* Eyebrow label used above section headings */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+.eyebrow::before {
+  content: "";
+  width: 2.25rem;
+  height: 1px;
+  background: currentColor;
+}
+
+/* Architectural gold diamond divider */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.gold-divider::before,
+.gold-divider::after {
+  content: "";
+  height: 1px;
+  width: 4.5rem;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+/* Premium form fields */
+.field {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--color-linen);
+  padding: 0.85rem 0.1rem;
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.3s ease;
+  border-radius: 0;
+}
+.field:focus {
+  border-bottom-color: var(--color-gold);
+}
+.field::placeholder {
+  color: #a7aca9;
+}
+.field-label {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Gold shimmer button */
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #d1b276 0%, #a58244 100%);
+  color: #fff;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 600;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s;
+  box-shadow: 0 12px 32px -12px rgba(165, 130, 68, 0.75);
+}
+.btn-gold::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.38) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+.btn-gold:hover:not(:disabled)::after {
+  transform: translateX(100%);
+}
+.btn-gold:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 38px -14px rgba(165, 130, 68, 0.9);
+}
+.btn-gold:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Entrance & ambient animations */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes slow-zoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes scroll-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+.animate-rise {
+  animation: rise 1.05s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.animate-slow-zoom {
+  animation: slow-zoom 16s ease-out both;
+}
+.animate-scroll-line {
+  animation: scroll-line 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.stagger-1 { animation-delay: 0.15s; }
+.stagger-2 { animation-delay: 0.3s; }
+.stagger-3 { animation-delay: 0.45s; }
+.stagger-4 { animation-delay: 0.6s; }
+
+/* Subtle luxury scrollbar for concierge drawer */
+.luxury-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.luxury-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.luxury-scroll::-webkit-scrollbar-thumb {
+  background: rgba(184, 151, 90, 0.35);
+  border-radius: 999px;
+}
+.luxury-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(184, 151, 90, 0.6);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.55;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-slow-zoom,
+  .animate-scroll-line {
+    animation: none;
+  }
+}

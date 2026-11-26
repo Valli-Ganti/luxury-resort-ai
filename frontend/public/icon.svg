@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e5cf9d" />
+      <stop offset="50%" stop-color="#c4a262" />
+      <stop offset="100%" stop-color="#9e7d3f" />
+    </linearGradient>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f352f" />
+      <stop offset="100%" stop-color="#0e1a17" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep forest luxury badge -->
+  <rect width="64" height="64" rx="14" fill="url(#bg)" />
+  <rect x="3.5" y="3.5" width="57" height="57" rx="11" fill="none" stroke="url(#gold)" stroke-width="1.5" stroke-opacity="0.75" />
+
+  <!-- Top champagne diamond -->
+  <polygon points="32,10 34.8,13 32,16 29.2,13" fill="url(#gold)" />
+
+  <!-- Architectural serif "A" monogram -->
+  <path
+    d="M32 19 L44.5 45 H39.6 L36.6 38.4 H27.4 L24.4 45 H19.5 L32 19 Z M32 26.8 L28.9 34.4 H35.1 L32 26.8 Z"
+    fill="url(#gold)"
+  />
+
+  <!-- Subtle ocean horizon wave -->
+  <path
+    d="M17 51.5 Q24.5 48.5 32 51.5 T47 51.5"
+    fill="none"
+    stroke="url(#gold)"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-opacity="0.9"
+  />
+</svg>
