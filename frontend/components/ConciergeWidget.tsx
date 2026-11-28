@@ -125,7 +125,8 @@ export default function ConciergeWidget({
   onOpenChange,
   initialPrompt,
   onClearInitialPrompt,
-  apiUrl = "http://127.0.0.1:8000",
+  apiUrl =
+  process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000"
 }: ConciergeWidgetProps) {
   const [sessionId, setSessionId] = useState<string>("");
   const [messages, setMessages] = useState<MessageItem[]>([WELCOME_MESSAGE]);
